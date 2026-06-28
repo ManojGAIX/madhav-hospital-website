@@ -133,7 +133,7 @@ const TopBar = () => {
                 <LocationOnIcon sx={iconStyle} />
 
                 <Typography sx={textStyle}>
-                  Railway Station Road, Indi
+                 Near Hotel Indi Palace, Indi
                 </Typography>
               </Link>
 
