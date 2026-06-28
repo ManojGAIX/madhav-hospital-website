@@ -21,7 +21,7 @@ const HeroImage = () => {
         mt: { xs: -2, md: -3 }, // optional fine lift
       }}
     >
-      {/* Large Background Circle */}   
+      {/* Large Background Circle */}
       <Box
         sx={{
           position: "absolute",
@@ -78,11 +78,19 @@ const HeroImage = () => {
         }}
         sx={{
           width: {
-            xs: "95%",
-            md: "82%",
+            xs: "105%",
+            md: "95%",
           },
-          maxWidth: 620,
+          maxWidth: 760,
           position: "relative",
+          top: {
+            xs: 0,
+            md: -35,
+          },
+          right: {
+            xs: 0,
+            md: -15,
+          },
           zIndex: 2,
           objectFit: "contain",
         }}
