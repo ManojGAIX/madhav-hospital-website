@@ -31,7 +31,7 @@ export const heroData = {
       title: "Happy Patients",
     },
     {
-      value: 20,
+      value: 7,
       suffix: "+",
       title: "Years Experience",
     },

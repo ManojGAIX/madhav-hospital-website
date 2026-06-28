@@ -9,45 +9,50 @@ import {
   IconButton,
   Drawer,
   List,
-  ListItem,
+  ListItemButton,
   ListItemIcon,
   ListItemText,
+  Divider,
+  Button,
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
 
 const TopBar = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      {/* ✅ GLASS STICKY APPBAR */}
       <AppBar
         position="sticky"
         elevation={0}
         sx={{
-          bgcolor: "rgba(11, 78, 162, 0.75)",
+          bgcolor: "rgba(11,78,162,0.82)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          borderBottom: "1px solid rgba(255,255,255,0.1)",
-          transition: "all 0.3s ease",
+          borderBottom: "1px solid rgba(255,255,255,.1)",
         }}
       >
         <Container maxWidth="xl">
           <Toolbar
             sx={{
-              minHeight: 45,
-              display: "flex",
+              minHeight: 48,
               justifyContent: "space-between",
-              alignItems: "center",
+              px: { xs: 1, md: 0 },
             }}
           >
-            {/* LEFT SIDE (Desktop) */}
+            {/* ================= Desktop Left ================= */}
+
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -55,22 +60,61 @@ const TopBar = () => {
                 gap: 3,
               }}
             >
-              {/* Phone */}
-              <Box sx={itemStyle}>
+              <Link
+                href="tel:+917353820079"
+                underline="none"
+                color="inherit"
+                sx={itemStyle}
+              >
                 <PhoneIcon sx={iconStyle} />
-                <Typography sx={textStyle}>+91 73538 20079</Typography>
-              </Box>
+                <Typography sx={textStyle}>
+                  +91 73538 20079
+                </Typography>
+              </Link>
 
-              {/* Email */}
-              <Box sx={itemStyle}>
+              <Link
+                href="mailto:info@madhavhospital.in"
+                underline="none"
+                color="inherit"
+                sx={itemStyle}
+              >
                 <EmailIcon sx={iconStyle} />
                 <Typography sx={textStyle}>
                   info@madhavhospital.in
                 </Typography>
-              </Box>
+              </Link>
             </Box>
 
-            {/* RIGHT SIDE (Desktop) */}
+            {/* ================= Mobile ================= */}
+
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
+              <Link
+                href="tel:+917353820079"
+                underline="none"
+                color="inherit"
+                sx={itemStyle}
+              >
+                <PhoneIcon sx={iconStyle} />
+                <Typography
+                  sx={{
+                    color: "#fff",
+                    fontSize: 13,
+                    fontWeight: 500,
+                  }}
+                >
+                  Call Now
+                </Typography>
+              </Link>
+            </Box>
+
+            {/* ================= Desktop Right ================= */}
+
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -78,26 +122,50 @@ const TopBar = () => {
                 gap: 3,
               }}
             >
-              {/* Location */}
-              <Box sx={itemStyle}>
+              <Link
+                href="https://maps.app.goo.gl/9PWoyM9rcByXkf5U8"
+                target="_blank"
+                underline="none"
+                color="inherit"
+                sx={itemStyle}
+              >
+                
                 <LocationOnIcon sx={iconStyle} />
+
                 <Typography sx={textStyle}>
                   Railway Station Road, Indi
                 </Typography>
-              </Box>
+              </Link>
 
-              {/* Social */}
-              <Box sx={{ display: "flex", gap: 1.5 }}>
-                <FaFacebookF style={socialIcon} />
-                <FaInstagram style={socialIcon} />
-                <FaYoutube style={socialIcon} />
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                }}
+              >
+                <SocialLink href="#">
+                  <FaFacebookF />
+                </SocialLink>
+
+                <SocialLink href="#">
+                  <FaInstagram />
+                </SocialLink>
+
+                <SocialLink href="#">
+                  <FaYoutube />
+                </SocialLink>
               </Box>
             </Box>
 
-            {/* MOBILE MENU ICON */}
+            {/* ================= Mobile Menu ================= */}
+
             <IconButton
-              sx={{ display: { xs: "flex", md: "none" }, color: "white" }}
               onClick={() => setOpen(true)}
+              sx={{
+                display: { xs: "flex", md: "none" },
+                color: "#fff",
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -105,43 +173,133 @@ const TopBar = () => {
         </Container>
       </AppBar>
 
-      {/* 📱 MOBILE DRAWER */}
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Box sx={{ width: 260, p: 2 }}>
-          <Typography
-            variant="h6"
-            sx={{ mb: 2, fontWeight: 600, color: "#0B4EA2" }}
+      {/* ================= Drawer ================= */}
+
+      <Drawer
+        anchor="right"
+        open={open}
+        onClose={() => setOpen(false)}
+      >
+        <Box
+          sx={{
+            width: 290,
+          }}
+        >
+          <Box
+            sx={{
+              bgcolor: "#0B4EA2",
+              color: "#fff",
+              py: 3,
+              textAlign: "center",
+            }}
           >
-            Contact Info
-          </Typography>
+            <Typography variant="h6" fontWeight={700}>
+              Madhav Orthopedic Hospital
+            </Typography>
+
+            <Typography variant="body2">
+              Expert Orthopaedic Care
+            </Typography>
+          </Box>
 
           <List>
-            <ListItem>
-              <ListItemIcon>
-                <PhoneIcon />
-              </ListItemIcon>
-              <ListItemText primary="+91 73538 20079" />
-            </ListItem>
 
-            <ListItem>
+            <ListItemButton
+              component="a"
+              href="tel:+917353820079"
+            >
               <ListItemIcon>
-                <EmailIcon />
+                <PhoneIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary="info@madhavhospital.in" />
-            </ListItem>
 
-            <ListItem>
+              <ListItemText
+                primary="+91 73538 20079"
+              />
+            </ListItemButton>
+
+            <ListItemButton
+              component="a"
+              href="mailto:info@madhavhospital.in"
+            >
               <ListItemIcon>
-                <LocationOnIcon />
+                <EmailIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary="Railway Station Road, Indi" />
-            </ListItem>
+
+              <ListItemText
+                primary="info@madhavhospital.in"
+              />
+            </ListItemButton>
+
+            <ListItemButton
+              component="a"
+              href="https://maps.google.com/?q=Railway+Station+Road,+Indi"
+              target="_blank"
+            >
+              <ListItemIcon>
+                <LocationOnIcon color="primary" />
+              </ListItemIcon>
+
+              <ListItemText
+                primary="Railway Station Road, Indi"
+              />
+            </ListItemButton>
+
           </List>
 
-          <Box sx={{ display: "flex", gap: 2, mt: 2, px: 2 }}>
-            <FaFacebookF />
-            <FaInstagram />
-            <FaYoutube />
+          <Divider />
+
+          <Box
+            sx={{
+              p: 3,
+            }}
+          >
+            <Typography
+              fontWeight={600}
+              mb={2}
+            >
+              Follow Us
+            </Typography>
+
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+              }}
+            >
+              <SocialLink href="#">
+                <FaFacebookF />
+              </SocialLink>
+
+              <SocialLink href="#">
+                <FaInstagram />
+              </SocialLink>
+
+              <SocialLink href="#">
+                <FaYoutube />
+              </SocialLink>
+            </Box>
+          </Box>
+
+          <Box p={3}>
+            <Button
+              fullWidth
+              startIcon={<WhatsAppIcon />}
+              variant="contained"
+              sx={{
+                bgcolor: "#25D366",
+                borderRadius: 5,
+                py: 1.3,
+                fontWeight: 700,
+                textTransform: "none",
+                fontSize: 15,
+
+                "&:hover": {
+                  bgcolor: "#1ebe5d",
+                },
+              }}
+            >
+              WhatsApp Us
+            </Button>
           </Box>
         </Box>
       </Drawer>
@@ -151,27 +309,52 @@ const TopBar = () => {
 
 export default TopBar;
 
-/* 🔥 reusable styles */
+/* ----------------------- Styles ----------------------- */
+
 const itemStyle = {
   display: "flex",
-  alignItems: "center", // ✅ FIX: prevents 2-line icon/text issue
-  gap: 0.6,
-  whiteSpace: "nowrap",
+  alignItems: "center",
+  gap: 0.7,
+  color: "#fff",
+  transition: ".3s",
+
+  "&:hover": {
+    color: "#6EE7B7",
+  },
 };
 
 const iconStyle = {
   fontSize: 16,
-  color: "white",
 };
 
 const textStyle = {
   fontSize: 13,
-  color: "white",
-  lineHeight: 1,
+  fontWeight: 500,
 };
 
-const socialIcon = {
-  fontSize: 14,
-  cursor: "pointer",
-  color: "white",
-};  
+const SocialLink = ({ href, children }) => (
+  <Link
+    href={href}
+    target="_blank"
+    underline="none"
+    color="inherit"
+    sx={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 30,
+      height: 30,
+      borderRadius: "50%",
+      color: "#fff",
+      transition: ".3s",
+
+      "&:hover": {
+        bgcolor: "rgba(255,255,255,.15)",
+        transform: "translateY(-2px)",
+        color: "#6EE7B7",
+      },
+    }}
+  >
+    {children}
+  </Link>
+);
