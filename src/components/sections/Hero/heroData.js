@@ -1,5 +1,5 @@
 export const heroData = {
-  badge: "WELCOME TO MADHAV ORTHOPAEDIC HOSPITAL",
+  badge: "------WELCOME TO MADHAV ORTHOPAEDIC HOSPITAL------",
 
   title: {
     first: "Expert Orthopaedic Care",
