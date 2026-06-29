@@ -306,7 +306,7 @@ const Footer = () => {
                     <Typography fontWeight={600}>Call Us</Typography>
 
                     <Typography variant="body2" color="rgba(255,255,255,.75)">
-                      +91 73538 20079
+                      +91 6362695499
                     </Typography>
                   </Box>
                 </Stack>

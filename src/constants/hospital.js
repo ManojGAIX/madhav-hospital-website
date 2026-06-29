@@ -1,7 +1,7 @@
 export const HOSPITAL = {
   name: "Madhav Orthopedic Hospital",
 
-  phone: "+91 73538 20079",
+  phone: "+91 6362695499",
 
   email: "info@madhavhospital.in",
 

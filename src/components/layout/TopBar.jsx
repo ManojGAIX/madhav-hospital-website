@@ -63,7 +63,7 @@ const TopBar = () => {
                 sx={itemStyle}
               >
                 <PhoneIcon sx={iconStyle} />
-                <Typography sx={textStyle}>+91 73538 20079</Typography>
+                <Typography sx={textStyle}>+916362695499</Typography>
               </Link>
 
               <Link
@@ -193,7 +193,7 @@ const TopBar = () => {
                 <PhoneIcon color="primary" />
               </ListItemIcon>
 
-              <ListItemText primary="+91 73538 20079" />
+              <ListItemText primary="+91 6362695499" />
             </ListItemButton>
 
             <ListItemButton component="a" href="mailto:info@madhavhospital.in">
