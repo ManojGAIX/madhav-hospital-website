@@ -6,6 +6,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 
@@ -59,6 +60,8 @@ const SpecialityCard = ({ speciality, index }) => {
         </Typography>
 
         <Button
+          component={Link}
+          to={`/treatments#${speciality.slug}`}
           endIcon={<ArrowForwardRoundedIcon />}
           sx={specialitiesStyles.button}
         >

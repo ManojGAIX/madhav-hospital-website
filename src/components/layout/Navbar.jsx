@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -14,67 +15,42 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 import logo from "../../assets/logo/logo.png";
-
-const menuItems = [
-  { label: "Home", id: "home" },
-  { label: "About", id: "about" },
-  { label: "Treatments", id: "treatments" },
-  { label: "Doctors", id: "doctors" },
-  { label: "Gallery", id: "gallery" },
-  { label: "Contact", id: "contact" },
-];
+import { NAV_ITEMS } from "../../constants/navigation";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const sections = menuItems.map((item) => document.getElementById(item.id));
+  const isActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.4,
-        rootMargin: "-120px 0px -40% 0px",
-      },
-    );
-
-    sections.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const activeMenu = {
-    color: "#0B4EA2",
-    fontWeight: 700,
-    borderBottom: "3px solid #009B72",
-    borderRadius: 0,
+    return location.pathname.startsWith(path);
   };
 
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
+  const navButtonSx = (path) => ({
+    color: isActive(path) ? "#0B4EA2" : "#334155",
+    fontWeight: isActive(path) ? 700 : 600,
+    borderBottom: isActive(path)
+      ? "3px solid #009B72"
+      : "3px solid transparent",
+    borderRadius: 0,
+    fontFamily: "Poppins",
+    fontSize: 16,
+    textTransform: "none",
+    transition: ".3s",
+    "&:hover": {
+      color: "#0B4EA2",
+      backgroundColor: "transparent",
+      transform: "translateY(-2px)",
+    },
+  });
 
-    if (!section) return;
-
-    const navbarHeight = 90;
-
-    const top =
-      section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-
-    window.scrollTo({
-      top,
-      behavior: "smooth",
-    });
-
-    setActiveSection(id);
+  const handleNavClick = (path) => {
+    navigate(path);
+    setOpen(false);
   };
 
   return (
@@ -87,87 +63,49 @@ const Navbar = () => {
               height: { xs: 75, md: 90 },
             }}
           >
-            {/* Mobile Menu Icon */}
             <IconButton
               onClick={() => setOpen(true)}
-              sx={{
-                display: { xs: "flex", md: "none" },
-              }}
+              sx={{ display: { xs: "flex", md: "none" } }}
             >
               <MenuIcon />
             </IconButton>
 
-            {/* Logo */}
             <Box
-              onClick={() => scrollToSection("home")}
+              component={Link}
+              to="/"
               sx={{
                 cursor: "pointer",
                 flexGrow: { xs: 1, md: 0 },
                 display: "flex",
-                justifyContent: {
-                  xs: "center",
-                  md: "flex-start",
-                },
+                justifyContent: { xs: "center", md: "flex-start" },
+                textDecoration: "none",
               }}
             >
               <img
                 src={logo}
                 alt="Madhav Orthopedic Hospital"
-                style={{
-                  height: 70,
-                  objectFit: "contain",
-                }}
+                style={{ height: 70, objectFit: "contain" }}
               />
             </Box>
 
-            {/* Desktop Menu */}
-            <Box
-              sx={{
-                display: { xs: "none", md: "flex" },
-                gap: 3,
-              }}
-            >
-              {menuItems.map((item) => (
+            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
+              {NAV_ITEMS.map((item) => (
                 <Button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  key={item.path}
+                  component={Link}
+                  to={item.path}
                   color="inherit"
-                  sx={{
-                    color: activeSection === item.id ? "#0B4EA2" : "#334155",
-
-                    fontWeight: activeSection === item.id ? 700 : 600,
-
-                    borderBottom:
-                      activeSection === item.id
-                        ? "3px solid #009B72"
-                        : "3px solid transparent",
-
-                    borderRadius: 0,
-
-                    fontFamily: "Poppins",
-
-                    fontSize: 16,
-
-                    textTransform: "none",
-
-                    transition: ".3s",
-
-                    "&:hover": {
-                      color: "#0B4EA2",
-                      backgroundColor: "transparent",
-                      transform: "translateY(-2px)",
-                    },
-                  }}
+                  sx={navButtonSx(item.path)}
                 >
                   {item.label}
                 </Button>
               ))}
             </Box>
 
-            {/* Desktop Appointment Button */}
             <Button
+              component={Link}
+              to="/contact"
               variant="contained"
-              onClick={() => scrollToSection("appointment")}
               sx={{
                 display: { xs: "none", md: "flex" },
                 background: "#009B72",
@@ -178,10 +116,7 @@ const Navbar = () => {
                 textTransform: "none",
                 fontSize: 17,
                 boxShadow: "0 8px 20px rgba(0,155,114,.3)",
-
-                "&:hover": {
-                  background: "#008463",
-                },
+                "&:hover": { background: "#008463" },
               }}
             >
               Book Appointment
@@ -190,7 +125,6 @@ const Navbar = () => {
         </Container>
       </AppBar>
 
-      {/* Mobile Drawer */}
       <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
         <Box sx={{ width: 260 }}>
           <Box sx={{ textAlign: "center", py: 3 }}>
@@ -198,19 +132,17 @@ const Navbar = () => {
           </Box>
 
           <List>
-            {menuItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <ListItemButton
-                key={item.id}
-                onClick={() => {
-                  scrollToSection(item.id);
-                  setOpen(false);
-                }}
+                key={item.path}
+                onClick={() => handleNavClick(item.path)}
+                selected={isActive(item.path)}
               >
                 <ListItemText
                   primary={item.label}
                   primaryTypographyProps={{
-                    fontWeight: activeSection === item.id ? 700 : 500,
-                    color: activeSection === item.id ? "#0B4EA2" : "#334155",
+                    fontWeight: isActive(item.path) ? 700 : 500,
+                    color: isActive(item.path) ? "#0B4EA2" : "#334155",
                   }}
                 />
               </ListItemButton>
@@ -221,10 +153,7 @@ const Navbar = () => {
             <Button
               fullWidth
               variant="contained"
-              onClick={() => {
-                scrollToSection("appointment");
-                setOpen(false);
-              }}
+              onClick={() => handleNavClick("/contact")}
               sx={{
                 background: "#009B72",
                 borderRadius: "50px",
@@ -232,10 +161,7 @@ const Navbar = () => {
                 fontWeight: 700,
                 textTransform: "none",
                 fontSize: 16,
-
-                "&:hover": {
-                  background: "#008463",
-                },
+                "&:hover": { background: "#008463" },
               }}
             >
               Book Appointment

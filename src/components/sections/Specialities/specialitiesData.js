@@ -15,6 +15,7 @@ import arthroscopyImage from "../../../assets/specialities/arthroscopy.jpg";
 export const specialitiesData = [
   {
     id: 1,
+    slug: "knee-replacement",
     title: "Knee Replacement",
     image: kneeImage,
     icon: HealingIcon,
@@ -24,6 +25,7 @@ export const specialitiesData = [
 
   {
     id: 2,
+    slug: "hip-replacement",
     title: "Hip Replacement",
     image: hipImage,
     icon: AccessibilityNewIcon,
@@ -33,6 +35,7 @@ export const specialitiesData = [
 
   {
     id: 3,
+    slug: "spine-surgery",
     title: "Spine Surgery",
     image: spineImage,
     icon: AirlineSeatFlatAngledIcon,
@@ -42,6 +45,7 @@ export const specialitiesData = [
 
   {
     id: 4,
+    slug: "fracture-care",
     title: "Trauma & Fracture Care",
     image: traumaImage,
     icon: MedicalServicesIcon,
@@ -51,6 +55,7 @@ export const specialitiesData = [
 
   {
     id: 5,
+    slug: "sports-injury",
     title: "Sports Injury",
     image: sportsImage,
     icon: SportsKabaddiIcon,
@@ -60,6 +65,7 @@ export const specialitiesData = [
 
   {
     id: 6,
+    slug: "arthroscopy",
     title: "Arthroscopy",
     image: arthroscopyImage,
     icon: BiotechIcon,

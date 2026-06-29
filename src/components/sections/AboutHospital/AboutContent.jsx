@@ -1,4 +1,5 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
@@ -85,6 +86,8 @@ const AboutContent = () => {
       {/* Button */}
 
       <Button
+        component={Link}
+        to="/treatments"
         variant="contained"
         endIcon={<ArrowForwardRoundedIcon />}
         sx={aboutStyles.button}

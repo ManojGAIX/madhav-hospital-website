@@ -9,6 +9,7 @@ import {
   Button,
   Divider,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 import {
   Phone,
@@ -28,48 +29,10 @@ import {
 import { motion } from "framer-motion";
 
 import logo from "../../assets/logo/logo.png";
+import { HOSPITAL } from "../../constants/hospital";
+import { NAV_ITEMS, TREATMENT_LINKS } from "../../constants/navigation";
 
 const MotionBox = motion(Box);
-
-/* ---------------------- Navigation ---------------------- */
-
-const quickLinks = [
-  {
-    title: "Home",
-    href: "#home",
-  },
-  {
-    title: "About",
-    href: "#about",
-  },
-  {
-    title: "Treatments",
-    href: "#treatments",
-  },
-  {
-    title: "Doctors",
-    href: "#doctors",
-  },
-  {
-    title: "Gallery",
-    href: "#gallery",
-  },
-  {
-    title: "Contact",
-    href: "#contact",
-  },
-];
-
-/* ---------------------- Treatments ---------------------- */
-
-const services = [
-  "Knee Replacement",
-  "Hip Replacement",
-  "Spine Surgery",
-  "Sports Injury",
-  "Fracture Care",
-  "Arthroscopy",
-];
 
 /* ---------------------- Social ---------------------- */
 
@@ -88,7 +51,7 @@ const socialLinks = [
   },
   {
     icon: <FaWhatsapp />,
-    link: "https://wa.me/916362695499",
+    link: HOSPITAL.whatsapp,
   },
 ];
 
@@ -198,6 +161,8 @@ const Footer = () => {
               {/* CTA */}
 
               <Button
+                component={RouterLink}
+                to="/contact"
                 variant="contained"
                 size="large"
                 sx={{
@@ -228,10 +193,11 @@ const Footer = () => {
             </Typography>
 
             <Stack spacing={2}>
-              {quickLinks.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <Link
-                  key={item.title}
-                  href={item.href}
+                  key={item.label}
+                  component={RouterLink}
+                  to={item.path}
                   underline="none"
                   color="inherit"
                   sx={{
@@ -248,7 +214,7 @@ const Footer = () => {
                   }}
                 >
                   <KeyboardArrowRight fontSize="small" />
-                  {item.title}
+                  {item.label}
                 </Link>
               ))}
             </Stack>
@@ -262,19 +228,29 @@ const Footer = () => {
             </Typography>
 
             <Stack spacing={2}>
-              {services.map((item) => (
-                <Typography
-                  key={item}
+              {TREATMENT_LINKS.map((item) => (
+                <Link
+                  key={item.label}
+                  component={RouterLink}
+                  to={item.path}
+                  underline="none"
+                  color="inherit"
                   sx={{
                     display: "flex",
                     alignItems: "center",
                     gap: 0.5,
                     color: "rgba(255,255,255,.82)",
+                    transition: ".3s",
+
+                    "&:hover": {
+                      color: "#25D366",
+                      pl: 1,
+                    },
                   }}
                 >
                   <KeyboardArrowRight fontSize="small" />
-                  {item}
-                </Typography>
+                  {item.label}
+                </Link>
               ))}
             </Stack>
           </Grid>
@@ -290,7 +266,7 @@ const Footer = () => {
               {/* Phone */}
 
               <Link
-                href="tel:+916362695499"
+                href={HOSPITAL.phoneTel}
                 underline="none"
                 color="inherit"
                 sx={{
@@ -306,7 +282,7 @@ const Footer = () => {
                     <Typography fontWeight={600}>Call Us</Typography>
 
                     <Typography variant="body2" color="rgba(255,255,255,.75)">
-                      +91 6362695499
+                      {HOSPITAL.phone}
                     </Typography>
                   </Box>
                 </Stack>
@@ -315,7 +291,7 @@ const Footer = () => {
               {/* Email */}
 
               <Link
-                href="mailto:info@madhavhospital.in"
+                href={`mailto:${HOSPITAL.email}`}
                 underline="none"
                 color="inherit"
                 sx={{
@@ -331,7 +307,7 @@ const Footer = () => {
                     <Typography fontWeight={600}>Email</Typography>
 
                     <Typography variant="body2" color="rgba(255,255,255,.75)">
-                      info@madhavhospital.in
+                      {HOSPITAL.email}
                     </Typography>
                   </Box>
                 </Stack>
@@ -340,7 +316,7 @@ const Footer = () => {
               {/* Address */}
 
               <Link
-                href="https://maps.app.goo.gl/9PWoyM9rcByXkf5U8"
+                href={HOSPITAL.mapsUrl}
                 target="_blank"
                 underline="none"
                 color="inherit"
@@ -357,9 +333,9 @@ const Footer = () => {
                     <Typography fontWeight={600}>Address</Typography>
 
                     <Typography variant="body2" color="rgba(255,255,255,.75)">
-                      Near Hotel Indi Palace, Railway Station Road
+                      {HOSPITAL.addressLines[0]}
                       <br />
-                      Indi, Karnataka - 586209
+                      {HOSPITAL.addressLines[1]}
                     </Typography>
                   </Box>
                 </Stack>
@@ -374,9 +350,9 @@ const Footer = () => {
                   <Typography fontWeight={600}>Working Hours</Typography>
 
                   <Typography variant="body2" color="rgba(255,255,255,.75)">
-                    Monday - Saturday
+                    {HOSPITAL.workingHoursLines[0]}
                     <br />
-                    9:00 AM - 8:00 PM
+                    {HOSPITAL.workingHoursLines[1]}
                   </Typography>
 
                   <Typography
@@ -386,7 +362,7 @@ const Footer = () => {
                       mt: 0.5,
                     }}
                   >
-                    24×7 Emergency Available
+                    {HOSPITAL.emergencyNote}
                   </Typography>
                 </Box>
               </Stack>

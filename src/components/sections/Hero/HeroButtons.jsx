@@ -1,4 +1,5 @@
 import { Button, Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
@@ -15,9 +16,8 @@ const HeroButtons = () => {
     >
       {/* Appointment */}
       <Button
-        component={motion.button}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.96 }}
+        component={Link}
+        to="/contact"
         variant="contained"
         startIcon={<CalendarMonthRoundedIcon />}
         endIcon={<ArrowForwardRoundedIcon />}
