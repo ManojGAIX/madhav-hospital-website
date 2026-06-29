@@ -21,7 +21,7 @@ export const heroData = {
   buttons: {
     primary: "Book Appointment",
     secondary: "Emergency Call",
-    phone: "+91 7353820079",
+    phone: "+91 6362695499",
   },
 
   stats: [

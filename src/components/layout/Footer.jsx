@@ -88,7 +88,7 @@ const socialLinks = [
   },
   {
     icon: <FaWhatsapp />,
-    link: "https://wa.me/917353820079",
+    link: "https://wa.me/916362695499",
   },
 ];
 
@@ -151,11 +151,7 @@ const Footer = () => {
                 />
 
                 <Box>
-                  <Typography
-                    variant="h5"
-                    fontWeight={800}
-                    letterSpacing={1}
-                  >
+                  <Typography variant="h5" fontWeight={800} letterSpacing={1}>
                     MADHAV
                   </Typography>
 
@@ -181,10 +177,9 @@ const Footer = () => {
                 }}
               >
                 Madhav Orthopedic Hospital provides advanced diagnosis,
-                orthopaedic surgery, trauma care, joint replacement,
-                sports injury treatment, and rehabilitation with
-                compassionate care, experienced specialists, and modern
-                medical technology.
+                orthopaedic surgery, trauma care, joint replacement, sports
+                injury treatment, and rehabilitation with compassionate care,
+                experienced specialists, and modern medical technology.
               </Typography>
 
               {/* Tag Line */}
@@ -213,8 +208,7 @@ const Footer = () => {
                   textTransform: "none",
                   fontWeight: 700,
                   fontSize: 16,
-                  boxShadow:
-                    "0 10px 30px rgba(22,163,74,.35)",
+                  boxShadow: "0 10px 30px rgba(22,163,74,.35)",
 
                   "&:hover": {
                     bgcolor: "#15803d",
@@ -229,11 +223,7 @@ const Footer = () => {
           {/* ================= QUICK LINKS ================= */}
 
           <Grid size={{ xs: 12, sm: 6, md: 2 }}>
-            <Typography
-              variant="h6"
-              fontWeight={700}
-              mb={3}
-            >
+            <Typography variant="h6" fontWeight={700} mb={3}>
               Quick Links
             </Typography>
 
@@ -247,7 +237,7 @@ const Footer = () => {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    gap: .5,
+                    gap: 0.5,
                     color: "rgba(255,255,255,.82)",
                     transition: ".3s",
 
@@ -267,11 +257,7 @@ const Footer = () => {
           {/* ================= TREATMENTS ================= */}
 
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Typography
-              variant="h6"
-              fontWeight={700}
-              mb={3}
-            >
+            <Typography variant="h6" fontWeight={700} mb={3}>
               Treatments
             </Typography>
 
@@ -282,7 +268,7 @@ const Footer = () => {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    gap: .5,
+                    gap: 0.5,
                     color: "rgba(255,255,255,.82)",
                   }}
                 >
@@ -293,23 +279,18 @@ const Footer = () => {
             </Stack>
           </Grid>
 
-                    {/* ================= CONTACT ================= */}
+          {/* ================= CONTACT ================= */}
 
           <Grid size={{ xs: 12, md: 3 }}>
-            <Typography
-              variant="h6"
-              fontWeight={700}
-              mb={3}
-            >
+            <Typography variant="h6" fontWeight={700} mb={3}>
               Contact Us
             </Typography>
 
             <Stack spacing={3}>
-
               {/* Phone */}
 
               <Link
-                href="tel:+917353820079"
+                href="tel:+916362695499"
                 underline="none"
                 color="inherit"
                 sx={{
@@ -322,14 +303,9 @@ const Footer = () => {
                   <Phone sx={{ color: "#25D366" }} />
 
                   <Box>
-                    <Typography fontWeight={600}>
-                      Call Us
-                    </Typography>
+                    <Typography fontWeight={600}>Call Us</Typography>
 
-                    <Typography
-                      variant="body2"
-                      color="rgba(255,255,255,.75)"
-                    >
+                    <Typography variant="body2" color="rgba(255,255,255,.75)">
                       +91 73538 20079
                     </Typography>
                   </Box>
@@ -352,14 +328,9 @@ const Footer = () => {
                   <Email sx={{ color: "#25D366" }} />
 
                   <Box>
-                    <Typography fontWeight={600}>
-                      Email
-                    </Typography>
+                    <Typography fontWeight={600}>Email</Typography>
 
-                    <Typography
-                      variant="body2"
-                      color="rgba(255,255,255,.75)"
-                    >
+                    <Typography variant="body2" color="rgba(255,255,255,.75)">
                       info@madhavhospital.in
                     </Typography>
                   </Box>
@@ -383,14 +354,9 @@ const Footer = () => {
                   <LocationOn sx={{ color: "#25D366" }} />
 
                   <Box>
-                    <Typography fontWeight={600}>
-                      Address
-                    </Typography>
+                    <Typography fontWeight={600}>Address</Typography>
 
-                    <Typography
-                      variant="body2"
-                      color="rgba(255,255,255,.75)"
-                    >
+                    <Typography variant="body2" color="rgba(255,255,255,.75)">
                       Near Hotel Indi Palace, Railway Station Road
                       <br />
                       Indi, Karnataka - 586209
@@ -405,14 +371,9 @@ const Footer = () => {
                 <AccessTime sx={{ color: "#25D366" }} />
 
                 <Box>
-                  <Typography fontWeight={600}>
-                    Working Hours
-                  </Typography>
+                  <Typography fontWeight={600}>Working Hours</Typography>
 
-                  <Typography
-                    variant="body2"
-                    color="rgba(255,255,255,.75)"
-                  >
+                  <Typography variant="body2" color="rgba(255,255,255,.75)">
                     Monday - Saturday
                     <br />
                     9:00 AM - 8:00 PM
@@ -422,7 +383,7 @@ const Footer = () => {
                     variant="body2"
                     sx={{
                       color: "#25D366",
-                      mt: .5,
+                      mt: 0.5,
                     }}
                   >
                     24×7 Emergency Available
@@ -433,12 +394,7 @@ const Footer = () => {
 
             {/* Social */}
 
-            <Stack
-              direction="row"
-              spacing={2}
-              mt={5}
-              flexWrap="wrap"
-            >
+            <Stack direction="row" spacing={2} mt={5} flexWrap="wrap">
               {socialLinks.map((item, index) => (
                 <Link
                   key={index}
@@ -466,7 +422,6 @@ const Footer = () => {
               ))}
             </Stack>
           </Grid>
-
         </Grid>
 
         <Divider
@@ -476,7 +431,7 @@ const Footer = () => {
           }}
         />
 
-                {/* ================= Footer Bottom ================= */}
+        {/* ================= Footer Bottom ================= */}
 
         <Box
           sx={{

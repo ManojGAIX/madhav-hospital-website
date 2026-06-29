@@ -1,5 +1,5 @@
 import { Box, Grid, Paper, Typography } from "@mui/material";
-import CountUp from "react-countup";
+import AnimatedCounter from "../../common/AnimatedCounter/AnimatedCounter";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 

@@ -22,11 +22,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const TopBar = () => {
   const [open, setOpen] = useState(false);
@@ -61,15 +57,13 @@ const TopBar = () => {
               }}
             >
               <Link
-                href="tel:+917353820079"
+                href="tel:+916362695499"
                 underline="none"
                 color="inherit"
                 sx={itemStyle}
               >
                 <PhoneIcon sx={iconStyle} />
-                <Typography sx={textStyle}>
-                  +91 73538 20079
-                </Typography>
+                <Typography sx={textStyle}>+91 73538 20079</Typography>
               </Link>
 
               <Link
@@ -79,9 +73,7 @@ const TopBar = () => {
                 sx={itemStyle}
               >
                 <EmailIcon sx={iconStyle} />
-                <Typography sx={textStyle}>
-                  info@madhavhospital.in
-                </Typography>
+                <Typography sx={textStyle}>info@madhavhospital.in</Typography>
               </Link>
             </Box>
 
@@ -95,7 +87,7 @@ const TopBar = () => {
               }}
             >
               <Link
-                href="tel:+917353820079"
+                href="tel:+916362695499"
                 underline="none"
                 color="inherit"
                 sx={itemStyle}
@@ -129,11 +121,10 @@ const TopBar = () => {
                 color="inherit"
                 sx={itemStyle}
               >
-                
                 <LocationOnIcon sx={iconStyle} />
 
                 <Typography sx={textStyle}>
-                 Near Hotel Indi Palace, Indi
+                  Near Hotel Indi Palace, Indi
                 </Typography>
               </Link>
 
@@ -175,11 +166,7 @@ const TopBar = () => {
 
       {/* ================= Drawer ================= */}
 
-      <Drawer
-        anchor="right"
-        open={open}
-        onClose={() => setOpen(false)}
-      >
+      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <Box
           sx={{
             width: 290,
@@ -197,37 +184,24 @@ const TopBar = () => {
               Madhav Orthopedic Hospital
             </Typography>
 
-            <Typography variant="body2">
-              Expert Orthopaedic Care
-            </Typography>
+            <Typography variant="body2">Expert Orthopaedic Care</Typography>
           </Box>
 
           <List>
-
-            <ListItemButton
-              component="a"
-              href="tel:+917353820079"
-            >
+            <ListItemButton component="a" href="tel:+916362695499">
               <ListItemIcon>
                 <PhoneIcon color="primary" />
               </ListItemIcon>
 
-              <ListItemText
-                primary="+91 73538 20079"
-              />
+              <ListItemText primary="+91 73538 20079" />
             </ListItemButton>
 
-            <ListItemButton
-              component="a"
-              href="mailto:info@madhavhospital.in"
-            >
+            <ListItemButton component="a" href="mailto:info@madhavhospital.in">
               <ListItemIcon>
                 <EmailIcon color="primary" />
               </ListItemIcon>
 
-              <ListItemText
-                primary="info@madhavhospital.in"
-              />
+              <ListItemText primary="info@madhavhospital.in" />
             </ListItemButton>
 
             <ListItemButton
@@ -239,11 +213,8 @@ const TopBar = () => {
                 <LocationOnIcon color="primary" />
               </ListItemIcon>
 
-              <ListItemText
-                primary="Railway Station Road, Indi"
-              />
+              <ListItemText primary="Railway Station Road, Indi" />
             </ListItemButton>
-
           </List>
 
           <Divider />
@@ -253,10 +224,7 @@ const TopBar = () => {
               p: 3,
             }}
           >
-            <Typography
-              fontWeight={600}
-              mb={2}
-            >
+            <Typography fontWeight={600} mb={2}>
               Follow Us
             </Typography>
 

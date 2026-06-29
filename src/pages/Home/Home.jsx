@@ -5,6 +5,8 @@ import Specialities from "../../components/sections/Specialities/Specialities";
 import WaveDivider from "../../components/common/Dividers/WaveDivider";
 import CurveDivider from "../../components/common/Dividers/CurveDivider";
 import Footer from "../../components/layout/Footer";
+import AboutHospital from "../../components/sections/AboutHospital/AboutHospital";
+import Doctors from "../../components/sections/Doctors/Doctors";
 
 const Home = () => {
   return (
@@ -12,11 +14,23 @@ const Home = () => {
       <Header />
       <Hero />
       <WaveDivider />
-      <WhyChooseUs />
-      <WaveDivider fill="#F8FBFF" flip />
       <Specialities />
+      <WaveDivider fill="#F8FBFF" flip />
+      <WhyChooseUs />
       <CurveDivider fill="#FFFFFF" />
-      <Footer/>
+      <AboutHospital />
+      <CurveDivider fill="#FFFFFF" />
+      <Doctors />
+
+
+      {/* Doctors */}
+
+      {/* Testimonials */}
+
+      {/* Gallery */}
+
+      {/* Contact */}
+      <Footer />
     </>
   );
 };
