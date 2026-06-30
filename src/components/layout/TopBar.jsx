@@ -39,7 +39,18 @@ const TopBar = () => {
           borderBottom: "1px solid rgba(255,255,255,.1)",
         }}
       >
-        <Container maxWidth="xl">
+        <Container
+          maxWidth="xl"
+          disableGutters
+          sx={{
+            px: {
+              xs: 2,
+              sm: 3,
+              md: 4,
+              lg: 5,
+            },
+          }}
+        >
           <Toolbar
             sx={{
               minHeight: 48,

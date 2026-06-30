@@ -56,7 +56,18 @@ const Navbar = () => {
   return (
     <>
       <AppBar position="sticky" color="inherit" elevation={1}>
-        <Container maxWidth="xl">
+        <Container
+          maxWidth="xl"
+          disableGutters
+          sx={{
+            px: {
+              xs: 2,
+              sm: 3,
+              md: 4,
+              lg: 5,
+            },
+          }}
+        >
           <Toolbar
             sx={{
               justifyContent: "space-between",
@@ -88,7 +99,14 @@ const Navbar = () => {
               />
             </Box>
 
-            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
+            <Box
+              sx={{
+                display: { xs: "none", lg: "flex" },
+                gap: 2,
+                flex: 1,
+                justifyContent: "center",
+              }}
+            >
               {NAV_ITEMS.map((item) => (
                 <Button
                   key={item.path}
@@ -107,16 +125,19 @@ const Navbar = () => {
               to="/contact"
               variant="contained"
               sx={{
-                display: { xs: "none", md: "flex" },
+                display: {
+                  xs: "none",
+                  lg: "flex",
+                },
+                whiteSpace: "nowrap",
+                minWidth: 190,
                 background: "#009B72",
-                borderRadius: "50px",
-                px: 4,
-                py: 1.3,
+                borderRadius: "999px",
+                px: 3,
+                py: 1.2,
+                fontSize: 15,
                 fontWeight: 700,
                 textTransform: "none",
-                fontSize: 17,
-                boxShadow: "0 8px 20px rgba(0,155,114,.3)",
-                "&:hover": { background: "#008463" },
               }}
             >
               Book Appointment
