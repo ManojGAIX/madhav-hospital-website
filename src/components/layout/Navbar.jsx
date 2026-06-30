@@ -37,14 +37,24 @@ const Navbar = () => {
       ? "3px solid #009B72"
       : "3px solid transparent",
     borderRadius: 0,
-    fontFamily: "Poppins",
-    fontSize: 16,
     textTransform: "none",
-    transition: ".3s",
+    whiteSpace: "nowrap",
+
+    px: {
+      md: 1,
+      lg: 1.5,
+      xl: 2,
+    },
+
+    fontSize: {
+      md: 14,
+      lg: 15,
+      xl: 16,
+    },
+
     "&:hover": {
       color: "#0B4EA2",
       backgroundColor: "transparent",
-      transform: "translateY(-2px)",
     },
   });
 
@@ -101,10 +111,14 @@ const Navbar = () => {
 
             <Box
               sx={{
-                display: { xs: "none", lg: "flex" },
-                gap: 2,
+                display: { xs: "none", md: "flex" },
                 flex: 1,
                 justifyContent: "center",
+                gap: {
+                  md: 1,
+                  lg: 2,
+                  xl: 3,
+                },
               }}
             >
               {NAV_ITEMS.map((item) => (
@@ -125,19 +139,19 @@ const Navbar = () => {
               to="/contact"
               variant="contained"
               sx={{
-                display: {
-                  xs: "none",
-                  lg: "flex",
-                },
+                display: { xs: "none", lg: "flex" }, // Only hide button on tablets
                 whiteSpace: "nowrap",
-                minWidth: 190,
-                background: "#009B72",
-                borderRadius: "999px",
+                minWidth: 180,
                 px: 3,
                 py: 1.2,
+                borderRadius: "50px",
+                background: "#009B72",
                 fontSize: 15,
                 fontWeight: 700,
                 textTransform: "none",
+                "&:hover": {
+                  background: "#008463",
+                },
               }}
             >
               Book Appointment
